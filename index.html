@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniversário de 1 Aninho da Nossa Princesa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --rosa-principal: #ff6b8b;
+            --rosa-escuro: #d81b60;
+            --azul-stitch: #1e88e5;
+            --azul-claro: #e3f2fd;
+            --fundo-cards: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            /* Fundo tropical com degradê mágico rosa/azul */
+            background: linear-gradient(/*135deg, #ffebee 0%, #e1f5fe 100%*/), 
+                        url('#') no-repeat center center fixed;
+                        background-color: #d81b60;
+            background-size: cover;
+            background-blend-mode: overlay;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Menu de Navegação */
+        nav {
+            background: rgba(255, 107, 139, 0.9);
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Cabeçalho / Banner Principal */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            position: relative;
+        }
+
+        /* Imagens flutuantes do Stitch (Ilustrativas) */
+        .stitch-float {
+            width: 120px;
+            position: absolute;
+            top: 20px;
+            left: 5%;
+            animation: float 4s ease-in-out infinite;
+            border-radius: 100%;
+        }
+        .angel-float {
+            width: 120px;
+            position: absolute;
+            top: 20px;
+            right: 5%;
+            animation: float 4s ease-in-out infinite 2s;
+            border-radius: 100%;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+        }
+
+        .hero h2 {
+            font-family: 'Fredoka One', cursive;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--rosa-principal);
+            text-shadow: 3px 3px 0px white, 5px 5px 15px rgba(0,0,0,0.2);
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #555;
+            margin-top: 15px;
+        }
+
+        /* Contador Regressivo */
+        .countdown-container {
+            background: white;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .countdown-title {
+            font-weight: bold;
+            color: var(--rosa-escuro);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .time-box span:first-child {
+            font-family: 'Fredoka One', cursive;
+            font-size: 28px;
+            color: var(--azul-stitch);
+        }
+
+        .time-box span:last-child {
+            font-size: 11px;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        /* Detalhes da Festa (Cards) */
+        .section-title {
+            text-align: center;
+            font-family: 'Fredoka One', cursive;
+            color: var(--rosa-escuro);
+            margin: 40px 0 20px 0;
+            font-size: 26px;
+        }
+
+        .grid-detalhes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            padding: 0 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--fundo-cards);
+            padding: 20px 10px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 2px solid #fff;
+            transition: 0.3s;
+        }
+
+        .card i {
+            font-size: 30px;
+            color: var(--rosa-principal);
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Botão Localização */
+        .btn-maps {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 5px 10px;
+            background: var(--azul-stitch);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Confirmação de Presença */
+        .confirmacao {
+            text-align: center;
+            padding: 30px 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-sim {
+            background: linear-gradient(135deg, #ff4081, #ff6b8b);
+        }
+
+        .btn-nao {
+            background: linear-gradient(135deg, #2196f3, #00bcd4);
+        }
+
+        .btn:hover {
+            transform: scale(1.03);
+        }
+
+        /* Galeria de Fotos */
+        .galeria {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        .galeria img {
+            width: 250px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            scroll-snap-align: center;
+            flex-shrink: 0;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.7);
+            margin-top: 40px;
+        }
+
+        footer h2 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--rosa-escuro);
+        }
+
+        /* Player de Música Flutuante */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--rosa-principal);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Responsividade para Celular */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 32px; }
+            .stitch-float, .angel-float { width: 70px; }
+            .grid-detalhes { grid-template-columns: 1fr 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="music-player" onclick="togglePlay()">
+        <i id="music-icon" class="fas fa-music"></i>
+    </div>
+    <audio id="bg-music" loop>
+        <source src="Música/YunLilo - Pari (Official Music Video).mp3" type="audio/mpeg">
+    </audio>
+
+    <nav>
+        <a href="#detalhes">Detalhes</a>
+        <a href="#confirmar">Confirmação</a>
+        <a href="#galeria">Galeria</a>
+    </nav>
+
+    <div class="hero">
+        <img class="stitch-float" src="fundo1.jpeg" alt="Stitch">
+        <img class="angel-float" src="fundo2.jpeg" alt="Angel">
+        
+        <h2>Você está convidado para o</h2>
+        <h1>Aniversário de<br>1 Aninho</h1>
+        <h2>da nossa princesa!</h2>
+        <p>🌸 Venha se divertir nesse dia especial e cheio de magia! 🌸</p>
+    </div>
+
+    <div class="countdown-container">
+        <div class="countdown-title">Faltam apenas:</div>
+        <div class="countdown" id="contador">
+            <div class="time-box"><span id="dias">29</span><span>Dias</span></div>
+            <div class="time-box"><span id="horas">00</span><span>Horas</span></div>
+            <div class="time-box"><span id="minutos">00</span><span>Min</span></div>
+            <div class="time-box"><span id="segundos">00</span><span>Seg</span></div>
+        </div>
+    </div>
+
+    <div id="detalhes">
+        <div class="section-title">🌺 Detalhes da Festa 🌺</div>
+        <div class="grid-detalhes">
+            <div class="card">
+                <i class="far fa-calendar-alt"></i>
+                <h3>Data</h3>
+                <p>18 de Junho de 2026<br>Quinta-Feira</p>
+            </div>
+            <div class="card">
+                <i class="far fa-clock"></i>
+                <h3>Horário</h3>
+                <p>15:00 Horas</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Local</h3>
+                <p>Tala Hady<br>Luanda, Angola</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-maps">Ver no Mapa</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-birthday-cake"></i>
+                <h3>Tema</h3>
+                <p>Lilo & Stitch<br>Tropical</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmar" class="confirmacao">
+        <div class="section-title">🌸 Confirme sua presença! 🌸</div>
+        <p>Sua presença tornará este dia ainda mais especial!</p>
+        
+        <div class="btn-group">
+            <button class="btn btn-sim" onclick="confirmarPresenca(true)">❤️ Vou com certeza!</button>
+            <button class="btn btn-nao" onclick="confirmarPresenca(false)">💙 Não poderei ir</button>
+            <button class="btn btn-sim" onclick="confirmarPresenca(true)">❤️ Confirme o seu presente!</button>
+        </div>
+    </div>
+
+    <div id="galeria">
+        <div class="section-title">📸 Galeria 📸</div>
+        <div class="galeria">
+            <img src="fundo.jpeg" alt="Festa 1">
+            <img src="fundo1.jpeg" alt="Festa 2">
+            <img src="fundo2.jpeg" alt="Festa 3">
+        </div>
+    </div>
+
+    <footer>
+        <h2>Esperamos você!</h2>
+        <p>Será um dia inesquecível!</p>
+    </footer>
+
+    <script>
+        const SEU_NUMERO_WHATSAPP = "939163101"; 
+
+        function confirmarPresenca(vai) {
+            let mensagem = "";
+            if(vai) {
+                mensagem = encodeURIComponent("Olá! Gostaria de confirmar minha presença no Aniversário de 1 Aninho! ❤️ Vou com certeza!");
+            } else {
+                mensagem = encodeURIComponent("Olá! Infelizmente não poderei ir ao aniversário, mas desejo uma festa linda! 💙");
+            }
+        
+            window.open(`https://wa.me/${939163101}?text=${mensagem}`, '_blank');
+        }
+
+        // CONTADOR REGRESSIVO (Ajuste a data da festa aqui)
+        const dataFesta = new Date("Junho 18, 2026 15:00:00").getTime();
+
+        const x = setInterval(function() {
+            const agora = new Date().getTime();
+            const distancia = dataFesta - agora;
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById("dias").innerHTML = dias < 10 ? "0" + dias : dias;
+            document.getElementById("horas").innerHTML = horas < 10 ? "0" + horas : horas;
+            document.getElementById("minutos").innerHTML = minutos < 10 ? "0" + minutos : minutos;
+            document.getElementById("segundos").innerHTML = segundos < 10 ? "0" + segundos : segundos;
+
+            if (distancia < 0) {
+                clearInterval(x);
+                document.getElementById("contador").innerHTML = "É HOJE! 🎉";
+            }
+        }, 1000);
+
+        // PLAYER DE MÚSICA
+        const musica = document.getElementById("bg-music");
+        const icone = document.getElementById("music-icon");
+
+        function togglePlay() {
+            if (musica.paused) {
+                musica.play();
+                icone.className = "fas fa-pause";
+            } else {
+                musica.pause();
+                icone.className = "fas fa-music";
+            }
+        }
+    </script>
+</body>
+</html>
